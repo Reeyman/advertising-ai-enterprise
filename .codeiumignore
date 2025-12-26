@@ -1,0 +1,9 @@
+# Exclude from Windsurf indexing
+node_modules/
+build/
+dist/
+.env*
+secrets/
+*.log
+*.key
+*.pem

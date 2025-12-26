@@ -1,0 +1,13 @@
+{
+  "name": "advertising-ai-enterprise",
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "npm run build --workspaces",
+    "test": "npm test --workspaces"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

@@ -1,0 +1,28 @@
+# Environments
+.env
+.env.local
+.env.development
+.env.production
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+build/
+dist/
+
+# Logs
+logs/
+*.log
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+
+# Secrets
+**/*.key
+**/*.pem
+**/*.secret
