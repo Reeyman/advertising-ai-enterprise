@@ -1,4 +1,4 @@
-# TODO: New Workstation Setup
+# TODO: Configurare Stație de Lucru
 
 ## Windows 11
 
@@ -10,24 +10,24 @@
    # Reboot when prompted
    ```
 
-2. **Install Ubuntu**:
+2. **Instalare Ubuntu**:
 
-   - Open Microsoft Store → Install "Ubuntu"
-   - Launch Ubuntu → Create username/password
+   - Deschide Microsoft Store → Instalează "Ubuntu"
+   - Lansează Ubuntu → Creează nume de utilizator/parolă
 
-3. **Install Dependencies**:
+3. **Instalare Dependințe**:
 
    ```bash
    sudo apt update
    sudo apt install -y git nodejs npm python3 python3-pip make
    ```
 
-4. **Install Docker Desktop**:
+4. **Instalare Docker Desktop**:
 
-   - Download from [docker.com](https://www.docker.com/products/docker-desktop/)
-   - Enable "Use WSL 2 based engine" in settings
+   - Descarcă de pe [docker.com](https://www.docker.com/products/docker-desktop/)
+   - Activează "Use WSL 2 based engine" în setări
 
-5. **Verify Installations**:
+5. **Verificare Instalări**:
    ```bash
    git --version
    node --version
@@ -37,33 +37,41 @@
    docker --version
    ```
 
-## 1. Configure Git
+## Listă Extensii VS Code
 
-Set your identity:
+1. **Windsurf** - Asistent AI
+2. **ESLint** - Analiză cod
+3. **Docker** - Management containere
+4. **GitLens** - Vizualizare istoric Git
+5. **Prettier** - Formatare automată
+
+## 1. Configurare Git
+
+Setează identitatea:
 
 ```bash
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
+git config --global user.name "Numele Tău"
+git config --global user.email "email@example.com"
 ```
 
-## 2. Setup SSH
+## 2. Configurare SSH
 
 ```bash
-ssh-keygen -t ed25519 -C "your.email@example.com"
+ssh-keygen -t ed25519 -C "email@example.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-## 3. Install Windsurf Extensions
+## 3. Instalare Windsurf Extensions
 
 - Python
 - ESLint
 - Docker
 - GitLens
 
-## 4. Configure MCP
+## 4. Configurare MCP
 
-Create `~/.codeium/mcp_config.json`:
+Creează `~/.codeium/mcp_config.json`:
 
 ```json
 {
@@ -86,14 +94,14 @@ Create `~/.codeium/mcp_config.json`:
 }
 ```
 
-## 5. Clone Repository
+## 5. Clonare Repository
 
 ```bash
 git clone https://github.com/your-org/advertising-ai-enterprise.git
 cd advertising-ai-enterprise
 ```
 
-## 6. Run Setup Script
+## 6. Rulare Script de Instalare
 
 ```bash
 npm run setup

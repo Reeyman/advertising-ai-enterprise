@@ -1,24 +1,24 @@
 # Ghid pentru Agenți
 
-## Stack Tehnologic
+## Tehnologii Utilizate
 
-- Frontend: Next.js 14 (App Router)
-- Backend: NestJS
-- DB: PostgreSQL + Prisma
+- **Frontend**: Next.js 14 (App Router)
+- **Backend**: NestJS
+- **Bază de date**: PostgreSQL + Prisma
 
-## Patterns Cheie
+## Principii Arhitecturale
 
-1. **Clean Architecture**: Separație strictă între logica de afaceri și infrastructură
-2. **Domain-Driven Design**: Module organizate pe domenii
-3. **CQRS**: Separare comenzi și interogări
+1. **Arhitectură Curată**: Separare strictă între logică de afaceri și infrastructură
+2. **Design Orientat pe Domeniu**: Module organizate pe domenii de business
+3. **CQRS**: Separare între comenzi (scriere) și interogări (citire)
 
 ## Reguli de Securitate
 
-⚠️ **Niciodată** nu accesați:
+⚠️ **Interzis**:
 
-- Fișiere `.env`
-- Credențiale în cod
-- Chei API hardcodate
+- Acces fișiere `.env`
+- Credențiale hardcodate
+- Chei API expuse în cod
 
 ## Automatizare Setup
 
@@ -31,10 +31,10 @@ Când un utilizator menționează configurarea unei noi stații de lucru:
 Pentru a iniția procesul, spuneți:
 "Bună! Am văzut că doriți să configurați o nouă stație de lucru. Vă pot ghida prin procesul din `setup_workstation.md`. Să începem?"
 
-## Comenzi Utile
+## Comenzi Util
 
 ```bash
-# Rulare locală
+# Pornire mediu dezvoltare
 make dev
 
 # Rulare teste

@@ -1,126 +1,64 @@
-# RUNBOOK: Advertising AI Enterprise Setup
+# MANUAL: Configurare Enterprise pentru Advertising AI
 
-## 1. Setup Laptop
+## 1. Pregătire Laptop
 
-### Ubuntu/Debian
+### Extensii VS Code Obligatorii
 
-```bash
-sudo apt update
-sudo apt install -y git docker.io nodejs npm python3 python3-pip make
+1. **ESLint** - Analiză cod în timp real
+2. **Docker** - Management containere
+3. **GitLens** - Vizualizare istoric Git
+4. **Windsurf** - Asistență AI integrată
 
-# Verify installations
-git --version
-docker --version
-node --version
-npm --version
-python3 --version
-make --version
-```
+### Setări Sistem Recomandate
 
-### macOS (Homebrew)
+- **Windows 11**:
+  ```powershell
+  wsl --install
+  ```
+- **Ubuntu**:
+  ```bash
+  sudo apt install -y git docker.io nodejs npm python3 make
+  ```
 
-```bash
-brew install git node docker python make
+## 2. Configurare Mediu Dezvoltare
 
-# Verify installations
-git --version
-node --version
-docker --version
-python --version
-make --version
-```
-
-### Windows 11
-
-1. **Enable WSL2**:
-
-   - Open PowerShell as Administrator
-
-   ```powershell
-   wsl --install
-   wsl --set-default-version 2
-   ```
-
-   - Reboot when prompted
-
-2. **Install Ubuntu**:
-
-   - Open Microsoft Store and install "Ubuntu"
-   - Launch Ubuntu and create a user account
-
-3. **Update Ubuntu**:
-
-   ```bash
-   sudo apt update
-   sudo apt upgrade
-   ```
-
-4. **Install Dependencies**:
-
-   ```bash
-   sudo apt install -y git nodejs npm python3 python3-pip make
-   ```
-
-5. **Install Docker Desktop**:
-
-   - Download from [docker.com](https://www.docker.com/products/docker-desktop/)
-   - Enable "Use WSL 2 based engine" in settings
-
-6. **Verify Installations**:
-   ```bash
-   git --version
-   node --version
-   npm --version
-   python3 --version
-   make --version
-   docker --version
-   ```
-
-### Windows (WSL2)
+### Instalare Unelte
 
 ```bash
-wsl --install -d Ubuntu
-# After reboot, run Ubuntu commands
-
-# In Ubuntu:
-sudo apt update
-sudo apt install -y git nodejs npm python3 python3-pip make
-```
-
-## 2. Setup Dev Environment
-
-```bash
-# Node.js (via nvm)
+# Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install 20
-nvm use 20
 
-# Python virtual environment
+# Python
 python -m venv .venv
 source .venv/bin/activate
 
 # Docker
 sudo systemctl enable docker
-sudo systemctl start docker
 sudo usermod -aG docker $USER
-newgrp docker
-
-# Verify Docker
-docker run hello-world
-
-# SSH & Git
-ssh-keygen -t ed25519 -C "your_email@example.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-
-# Add SSH key to GitHub
-cat ~/.ssh/id_ed25519.pub
-# Copy output and add to GitHub SSH keys
 ```
 
-## 3. Setup Windsurf
+## 3. Conturi și Chei API
+
+### Listă Conturi Obligatorii
+
+1. [GitHub](https://github.com) - Gestionare cod sursă
+2. [OpenAI](https://platform.openai.com) - Acces modele AI
+3. [Vercel](https://vercel.com) - Hosting frontend
+4. [Supabase](https://supabase.com) - Baze de date
+
+### Gestionare Chei
+
+```bash
+# Fișier .env
+OPENAI_API_KEY=cheia_ta
+SUPABASE_URL=url_proiect
+SUPABASE_KEY=cheia_ta
+```
+
+## 4. Configurare Windsurf
+
+### Instalare Extensie
 
 1. Instalați extensia VS Code
 2. Configurați în `~/.codeium/mcp_config.json`:
@@ -146,90 +84,55 @@ cat ~/.ssh/id_ed25519.pub
 }
 ```
 
-1. Adăugați variabilele în `.env` (NU în git)
+## 5. Configurare GitHub
 
-## 4. Setup GitHub
+### Creare Repository
 
-### Troubleshooting
+1. **Creare Repository Manual**:
 
-If you get "Bad credentials" when creating the repository:
+   - Mergeți la [github.com/new](https://github.com/new)
+   - Proprietar: Reeyman
+   - Nume repository: `advertising-ai-enterprise`
+   - Vizibilitate: Privat
+   - Lăsați toate celelalte opțiuni neselectate
+   - Faceți clic pe "Creați repository"
 
-1. Regenerate your GitHub token at [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Ensure it has the `repo` scope
-3. Set it in your environment:
-
-```bash
-export GITHUB_TOKEN=new_token
-```
-
-1. **Create Personal Access Token**:
-
-   - Go to [github.com/settings/tokens](https://github.com/settings/tokens)
-   - Generate new token with `repo` scope
-   - Copy the token (treat it as a password)
-
-2. **Create Repository via CLI**:
+2. **Push Code**:
 
 ```bash
-# Set token as environment variable
-export GITHUB_TOKEN=your_token
-
-# Create repo
-curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-  -d '{"name":"advertising-ai-enterprise","private":true}' \
-  https://api.github.com/user/repos
-```
-
-3. **Push Code**:
-
-```bash
-git remote add origin https://github.com/<your-username>/advertising-ai-enterprise.git
-git add .
-git commit -m "Initial commit"
+git remote add origin https://github.com/Reeyman/advertising-ai-enterprise.git
+git branch -M main
 git push -u origin main
 ```
 
-4. **Configure Branch Protection**:
+## 6. Configurare Produs (MVP)
 
-   - Go to Settings → Branches → Add branch protection rule
-   - Branch name pattern: `main`
-   - Require pull request reviews before merging: 1 reviewer
-   - Require status checks to pass before merging
-     - Add status check: `ci`
-   - Save changes
-
-5. Protecție branch:
-
-```yaml
-# .github/branch_protection.yml
-main:
-  required_status_checks:
-    strict: true
-    contexts: [ci]
-  required_pull_request_reviews:
-    required_approving_review_count: 1
-```
-
-## 5. Setup Produs (MVP)
+### Structură Monorepo
 
 ```bash
-# Structură monorepo
+# Creare structură monorepo
 mkdir -p apps/web apps/api packages/shared infra docs
 ```
 
-## 6. Setup Deploy
+## 7. Configurare Deploy
+
+### Terraform Init
 
 ```bash
-# Terraform init
+# Inițializare Terraform
 cd infra
 terraform init
+```
 
-# Vercel deploy
+### Vercel Deploy
+
+```bash
+# Deploy Vercel
 vercel link
 vercel env pull .env.local
 ```
 
-## 7. Checklist DoD
+## 8. Checklist DoD
 
 - [ ] Laptop: Toate dependențe instalate
 - [ ] Dev: SSH configurat, pre-commit instalat
