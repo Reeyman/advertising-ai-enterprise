@@ -1,4 +1,4 @@
-# Advertising AI Enterprise – Ghid scurt în română (pentru partener non-tehnic)
+# Advertising AI Enterprise – Ghid scurt în română 
 
 **Scop:** Partenerul instalează Windsurf pe Windows și cere AI-ului să facă tot (creează/editează fișiere, rulează comenzi).
 
