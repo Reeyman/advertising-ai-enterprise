@@ -2,6 +2,8 @@
 
 **Scop:** Partenerul instalează Windsurf pe Windows și cere AI-ului să facă tot (creează/editează fișiere, rulează comenzi).
 
+Dupa instalare creezi cont si folosesti free tier si modelul care il foloesti in Windsurf trebuie sa fie mereu SWE-1.5
+
 **Documente utile:**
 
 - `QUICK_START_WINDOWS.md` – pași copy-paste Windows + Windsurf + MCP
