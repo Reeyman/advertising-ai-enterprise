@@ -1,0 +1,39 @@
+# A URL-safe base64 encoded 256-bit key.
+# Generate with: openssl rand -base64 32
+anon_key = "your_supabase_anon_key"
+
+# A URL-safe base64 encoded 256-bit key.
+# Generate with: openssl rand -base64 32
+service_role_key = "your_supabase_service_role_key"
+
+# The external URL of your Supabase project.
+# This is used for authentication and linking to your project.
+project_url = "your_supabase_project_url"
+
+# The port to run the local Supabase services on.
+# Default: 54321
+port = 54321
+
+# The database major version to use.
+# Default: 15
+db_version = "15"
+
+# The database image to use.
+# Default: "supabase/postgres:15.1.0.122"
+db_image = "supabase/postgres:15.1.0.122"
+
+# Additional Docker compose files to include.
+# Default: []
+include = []
+
+# The amount of time to wait for the database to start.
+# Default: 60 seconds
+db_timeout = 60
+
+# The amount of time to wait for the Supabase services to start.
+# Default: 60 seconds
+start_timeout = 60
+
+# The amount of time to wait for the Supabase services to stop.
+# Default: 60 seconds
+stop_timeout = 60

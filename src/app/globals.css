@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --bg: 0 0% 100%;
+    --surface: 0 0% 100%;
+    --surface-2: 210 40% 96%;
+    --surface-3: 210 40% 94%;
+    --text: 222.2 84% 4.9%;
+    --muted: 215.4 16.3% 46.9%;
+    --subtle: 210 40% 96%;
+    --border: 214.3 31.8% 91.4%;
+    --border-strong: 214.3 31.8% 81.4%;
+    --border-subtle: 214.3 31.8% 96.4%;
+    --brand: 222.2 47.4% 11.2%;
+    --brand-hover: 222.2 47.4% 21.2%;
+    --brand-light: 222.2 47.4% 91.2%;
+    --accent: 210 40% 96%;
+    --accent-2: 217.2 32.6% 17.5%;
+    --highlight: 0 84.2% 60.2%;
+    --success: 142.1 76.2% 36.3%;
+    --warning: 32.6 94.6% 43.7%;
+    --danger: 0 84.2% 60.2%;
+    --info: 221.2 83.3% 53.3%;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-pill: 9999px;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl:
+      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --bg: 222.2 84% 4.9%;
+    --surface: 222.2 84% 4.9%;
+    --surface-2: 217.2 32.6% 17.5%;
+    --surface-3: 217.2 32.6% 15.5%;
+    --text: 210 40% 98%;
+    --muted: 215 20.2% 65.1%;
+    --subtle: 217.2 32.6% 17.5%;
+    --border: 217.2 32.6% 17.5%;
+    --border-strong: 217.2 32.6% 27.5%;
+    --border-subtle: 217.2 32.6% 7.5%;
+    --brand: 210 40% 98%;
+    --brand-hover: 210 40% 88%;
+    --brand-light: 210 40% 78%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-2: 210 40% 96%;
+    --highlight: 0 62.8% 30.6%;
+    --success: 142.1 70.6% 45.3%;
+    --warning: 32.6 94.6% 53.7%;
+    --danger: 0 62.8% 30.6%;
+    --info: 221.2 83.3% 63.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg text-text;
+  }
+}
