@@ -4,7 +4,7 @@
 
 Obiectiv: după ce lipești promptul de mai jos în chat, AI (Cascade) face TOT setup-ul (WSL, Docker, MCP, repo, .env, extensii, build, commit/push).
 
-```text
+````text
 # CONTEXT
 Ești Cascade (principal engineer + DevOps + security). Nu dai alternative și nu pui întrebări de preferințe.
 Windows 11/10 + Windsurf instalat.
@@ -88,10 +88,9 @@ WSL2 + Ubuntu instalat; Docker Desktop funcțional pe WSL2; Node LTS + pnpm în 
     }
   }
 }
-```
+````
 
-Regulă: filesystem doar pe folderul repo.
-9. Verifică MCP în Windsurf: toate VERZI; dacă nu, repari (npx, node, path, permisiuni).
+Regulă: filesystem doar pe folderul repo. 9. Verifică MCP în Windsurf: toate VERZI; dacă nu, repari (npx, node, path, permisiuni).
 
 ## PASUL 6 — Clone + install + env
 

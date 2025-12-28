@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../app/page.tsx"],"sourcesContent":["export default function Home() { return <div>Hello World</div>; }\n"],"names":[],"mappings":"wIAAe,SAAS,IAAS,MAAO,CAAA,EAAA,EAAA,GAAA,EAAC,MAAA,UAAI,eAAmB"}

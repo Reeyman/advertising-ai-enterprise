@@ -11,7 +11,6 @@
    ```
 
 2. **Instalare Ubuntu**:
-
    - Deschide Microsoft Store → Instalează "Ubuntu"
    - Lansează Ubuntu → Creează nume de utilizator/parolă
 
@@ -23,7 +22,6 @@
    ```
 
 4. **Instalare Docker Desktop**:
-
    - Descarcă de pe [docker.com](https://www.docker.com/products/docker-desktop/)
    - Activează "Use WSL 2 based engine" în setări
 

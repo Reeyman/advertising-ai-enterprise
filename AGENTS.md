@@ -55,10 +55,10 @@ npm run migrate    # migrații
 
 ## Proces de lucru
 
-1) Cercetare: caută pattern-uri existente (`grep`/`search`), citește regulile.
-2) Implementare: scrie test pentru flux critic, aplică pattern-urile existente.
-3) Verificare: `npm run lint && npm test && npm run build`.
-4) Securitate: verifică să nu fie secrete în diff, nu stage-ui `.env*`.
+1. Cercetare: caută pattern-uri existente (`grep`/`search`), citește regulile.
+2. Implementare: scrie test pentru flux critic, aplică pattern-urile existente.
+3. Verificare: `npm run lint && npm test && npm run build`.
+4. Securitate: verifică să nu fie secrete în diff, nu stage-ui `.env*`.
 
 ## Principii arhitecturale
 

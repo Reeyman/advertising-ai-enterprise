@@ -2,7 +2,12 @@ import js from '@eslint/js';
 
 export default [
   {
-    ignores: ['**/node_modules/**', '**/.next/**', '**/dist/**', '**/.turbo/**'],
+    ignores: [
+      '**/node_modules/**',
+      '**/.next/**',
+      '**/dist/**',
+      '**/.turbo/**',
+    ],
   },
   {
     ...js.configs.recommended,

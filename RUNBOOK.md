@@ -89,7 +89,6 @@ SUPABASE_KEY=cheia_ta
 ### Creare Repository
 
 1. **Creare Repository Manual**:
-
    - Mergeți la [github.com/new](https://github.com/new)
    - Proprietar: Reeyman
    - Nume repository: `advertising-ai-enterprise`

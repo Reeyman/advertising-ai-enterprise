@@ -1,53 +1,182 @@
-# Advertising AI Enterprise – Ghid scurt în română 
+# Supabase CLI
 
-**Scop:** Partenerul instalează Windsurf pe Windows și cere AI-ului să facă tot (creează/editează fișiere, rulează comenzi).
+[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
+](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
 
-Dupa instalare creezi cont si folosesti free tier si modelul care il foloesti in Windsurf trebuie sa fie mereu SWE-1.5
+[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
 
-**Documente utile:**
+This repository contains all the functionality for Supabase CLI.
 
-- `QUICK_START_WINDOWS.md` – pași copy-paste Windows + Windsurf + MCP
-- `AGENTS.md` – instrucțiuni pentru AI (română)
-- `MCP_CONFIG_TEMPLATE.md` – configurare MCP
-- `RUNBOOK.md` / `RUNBOOK_PHASES_4-6.md` – detalii complete (engleză, dar ai rezumat în română la început)
+- [x] Running Supabase locally
+- [x] Managing database migrations
+- [x] Creating and deploying Supabase Functions
+- [x] Generating types directly from your database schema
+- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
 
-## Ce conține proiectul (stack)
+## Getting started
 
-- Next.js 16 (App Router) + React 19 + TypeScript 5
-- Tailwind CSS 4
-- Supabase (PostgreSQL + Auth + Storage + Edge Functions)
-- OpenAI API, Resend, Stripe (planificat), Vercel
-- Teste: Vitest, Playwright, ESLint, Prettier
+### Install the CLI
 
-## Pași ultra-scurți (Windows + Windsurf)
-
-1. Descarcă și instalează **Windsurf** (Windows).
-2. Urmează pașii din `QUICK_START_WINDOWS.md` (PowerShell copy-paste):
-   - Node.js 24 LTS, Git, Docker Desktop, Supabase CLI
-   - Clonează repo-ul, `npm install`, `copy .env.example .env.local`
-   - Configurează MCP (`.codeium/mcp_config.json`) pentru GitHub + Brave + filesystem (implicit).
-3. Deschide Windsurf, încarcă workspace-ul, apoi deschide un chat nou și spune ce vrei (ex: „Instalează dependențele și pornește proiectul”).
-4. AI-ul va crea/edita fișiere, va rula comenzi și îți va confirma pașii.
-
-## Comenzi de bază (dacă vrei să le rulezi manual)
+Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
 
 ```bash
-npm install
-npm run dev        # pornește serverul dev
-npm run lint       # verifică lint
-npm test           # rulează testele
-npm run build      # build prod
-npx supabase start # supabase local
-npm run migrate    # migrații
+npm i supabase --save-dev
 ```
 
-## Deploy
+When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
 
-Apasă butonul Vercel sau folosește configurația existentă:
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-org%2Fadvertising-ai-enterprise)
+```
+NODE_OPTIONS=--no-experimental-fetch yarn add supabase
+```
 
-## Dacă ai nevoie de mai mult
+> **Note**
+> For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
 
-- Pentru setup detaliat: `RUNBOOK.md` (are rezumat în română la început, restul în engleză)
-- Pentru MCP avansat: `MCP_CONFIG_TEMPLATE.md`
-- Pentru instrucțiuni AI: `AGENTS.md` (română)
+<details>
+  <summary><b>macOS</b></summary>
+
+Available via [Homebrew](https://brew.sh). To install:
+
+```sh
+brew install supabase/tap/supabase
+```
+
+To install the beta release channel:
+
+```sh
+brew install supabase/tap/supabase-beta
+brew link --overwrite supabase-beta
+```
+
+To upgrade:
+
+```sh
+brew upgrade supabase
+```
+
+</details>
+
+<details>
+  <summary><b>Windows</b></summary>
+
+Available via [Scoop](https://scoop.sh). To install:
+
+```powershell
+scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
+scoop install supabase
+```
+
+To upgrade:
+
+```powershell
+scoop update supabase
+```
+
+</details>
+
+<details>
+  <summary><b>Linux</b></summary>
+
+Available via [Homebrew](https://brew.sh) and Linux packages.
+
+#### via Homebrew
+
+To install:
+
+```sh
+brew install supabase/tap/supabase
+```
+
+To upgrade:
+
+```sh
+brew upgrade supabase
+```
+
+#### via Linux packages
+
+Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
+
+```sh
+sudo apk add --allow-untrusted <...>.apk
+```
+
+```sh
+sudo dpkg -i <...>.deb
+```
+
+```sh
+sudo rpm -i <...>.rpm
+```
+
+```sh
+sudo pacman -U <...>.pkg.tar.zst
+```
+
+</details>
+
+<details>
+  <summary><b>Other Platforms</b></summary>
+
+You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
+
+```sh
+go install github.com/supabase/cli@latest
+```
+
+Add a symlink to the binary in `$PATH` for easier access:
+
+```sh
+ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
+```
+
+This works on other non-standard Linux distros.
+
+</details>
+
+<details>
+  <summary><b>Community Maintained Packages</b></summary>
+
+Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
+To install in your working directory:
+
+```bash
+pkgx install supabase
+```
+
+Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
+
+</details>
+
+### Run the CLI
+
+```bash
+supabase bootstrap
+```
+
+Or using npx:
+
+```bash
+npx supabase bootstrap
+```
+
+The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
+
+## Docs
+
+Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
+
+## Breaking changes
+
+We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
+
+However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
+
+## Developing
+
+To run from source:
+
+```sh
+# Go >= 1.22
+go run . help
+```
