@@ -27,3 +27,5 @@ logs/
 **/*.pem
 **/*.secret
 .next/
+.env.local
+.env.*
