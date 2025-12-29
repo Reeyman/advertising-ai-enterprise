@@ -16,6 +16,7 @@
     "migrations:apply-single": "node scripts/apply-migration.js",
     "migrations:verify": "node scripts/verify-phase2-complete.js",
     "dev": "npx next dev",
+    "dev:webpack": "NEXT_DISABLE_TURBOPACK=1 npx next dev",
     "build": "npx next build",
     "start": "npx next start",
     "lint": "eslint .",
