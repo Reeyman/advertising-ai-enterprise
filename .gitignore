@@ -29,3 +29,4 @@ logs/
 .next/
 .env.local
 .env.*
+.env
