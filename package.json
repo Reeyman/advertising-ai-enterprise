@@ -85,7 +85,6 @@
     "postcss": "^8",
     "prettier": "^3.7.4",
     "server-only": "^0.0.1",
-    "supabase": "^2.70.5",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typescript": "^5",
